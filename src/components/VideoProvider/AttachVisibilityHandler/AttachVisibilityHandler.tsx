@@ -1,9 +1,9 @@
-import { isMobile } from '../../../utils';
+// import { isMobile, isSafari } from '../../../utils';
 import { useEffect, useRef } from 'react';
 import useLocalVideoToggle from '../../../hooks/useLocalVideoToggle/useLocalVideoToggle';
 import useVideoContext from '../../../hooks/useVideoContext/useVideoContext';
 
-/* 
+/*
   This component adds a visibilitychange handler to the document when
   the user is using a mobile device. When the handler detects that
   the browser has been backgrounded, it unpublishes the users local
@@ -19,9 +19,10 @@ export default function AttachVisibilityHandler() {
   const shouldRepublishVideoOnForeground = useRef(false);
 
   useEffect(() => {
-    if (isMobile) {
+    if (false) {
       const handleVisibilityChange = () => {
         // We don't need to unpublish the local video track if it has already been unpublished
+        console.log('handling visibility change');
         if (document.visibilityState === 'hidden' && isVideoEnabled) {
           shouldRepublishVideoOnForeground.current = true;
           toggleVideoEnabled();

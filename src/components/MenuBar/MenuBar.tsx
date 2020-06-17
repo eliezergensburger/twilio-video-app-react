@@ -97,7 +97,7 @@ export default function MenuBar() {
       // const hostUrl = 'https://makarandp0.github.io/twilioapi';
       const params = new window.URLSearchParams({ token, name, room: roomName, autoJoin: 'true' });
       const { protocol, host } = window.location;
-      const hostUrl = `${protocol}//${host}/apidemo/`;
+      const hostUrl = `${protocol}//${host}/apidemo/index.html`;
       window.location.href = `${hostUrl}?${params}`;
     });
   };

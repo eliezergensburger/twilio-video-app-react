@@ -7,6 +7,13 @@ export const isMobile = (() => {
   return /Mobile/.test(navigator.userAgent);
 })();
 
+export const isSafari = (() => {
+  if (typeof navigator === 'undefined' || typeof navigator.userAgent !== 'string') {
+    return false;
+  }
+  return !!/Safari/.test(navigator.userAgent);
+})();
+
 // This function ensures that the user has granted the browser permission to use audio and video
 // devices. If permission has not been granted, it will cause the browser to ask for permission
 // for audio and video at the same time (as opposed to separate requests).
